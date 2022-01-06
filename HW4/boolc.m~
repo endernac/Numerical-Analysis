@@ -1,0 +1,19 @@
+function I=boolc(f,a,b,n)
+
+if mod(n,4)~=0
+  'n not multiple of 4'
+  break
+end  
+
+h=(b-a)/(4n);
+xeve=a+2*h:2*h:b-2*h;
+x0 = a:4*h:b;
+x1 = a+h:4*h:b-3*h;
+x2 = a+2*h:4*h:b-2*h;
+x3 = a+3*h:4*h:b-1*h;
+x0 = a+4*h:4*h:b;
+
+xodd=a+h:2*h:b-h;
+xeve=a+2*h:2*h:b-2*h;
+I=4*sum(f(xodd))+2*sum(f(xeve))+f(a)+f(b);
+I=h*I/3.;

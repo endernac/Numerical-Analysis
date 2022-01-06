@@ -1,0 +1,14 @@
+% Function f and df/dy 
+% (since we are iterating on y for Newton's method)
+f = @(t, y) -y;
+Df = @(t, y) -1;
+
+N = 5;
+tspan = [0 1];
+Y_a = 1;
+tol= 10e-15;
+
+[t1,y1] = trapezoid(f,Df,tspan,Y_a,N,0);
+[t2,y2] = trapezoid2(f,tspan,Y_a,N,0);
+
+disp(y2(N)-y1(N)
